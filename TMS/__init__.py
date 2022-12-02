@@ -15,6 +15,8 @@ db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 # Initialize the flask_login
 login_manager = LoginManager(app)
+login_manager.login_view = 'login'  # Tells extension where our login route is located
+login_manager.login_message_category = 'info'  # Bootstrap class to make 'login required message' colorful
 
 from .routes import *
 from .models import User, Post
